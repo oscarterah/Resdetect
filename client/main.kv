@@ -1,0 +1,86 @@
+<MainWid>:
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<StartWid>:
+    orientation: "vertical"
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+ 
+    FloatLayout:
+        id:entry
+        Widget:
+            Camera:
+                center: self.size and entry.center
+                play: True
+                id: camera
+                index: 0
+                resolution: (1280,720)
+                size: 1500, 2000
+
+                canvas.before:
+                    PushMatrix:
+                    Rotate:
+                        angle: -90
+                        origin: self.center
+
+                canvas.after:
+                    PopMatrix:
+                allow_stretch: True
+
+            
+    MDRectangleFlatButton:
+        text: "Close"
+        pos_hint: {"center_x": 0.25}
+
+        size_hint_y: 0.1 
+        size_hint_x: 0.5 
+        on_release:
+            root.close_cam()
+            app.get_running_app().stop()
+
+    MDRectangleFlatButton:
+        text: "Detect"
+        pos_hint: {"center_x": 0.75}
+        size_hint_y: 0.1 
+        size_hint_x: 0.5 
+        on_release:
+            root.goto_predict()
+            root.thread_gen()
+
+<EditWid>:
+    orientation: "vertical"
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<DataWid>:
+    orientation: "vertical"
+    canvas:
+        Color:
+            rgb: 1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    MDLabel:
+        id: labs
+        text: " "
+        text_size: self.size 
+        font_size: 40 
+        bold: True 
+        halign: 'left'
+        valign: 'center'   
