@@ -16,3 +16,6 @@ proof of concept using python to deploy a deep learning model and consume it in 
 -pil
 -requests
 </p>
+
+<p> Youtube Video link </p>
+https://youtu.be/RL5ZUmDCk8s
