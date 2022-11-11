@@ -33,7 +33,7 @@ def prepare_image(image, target):
 
 @app.route("/")
 def homepage():
-	return "Welcome to the PyImageSearch Keras REST API!"
+	return "Welcome to the terahnet API!"
 
 @app.route("/predict", methods=["POST"])
 def predict():
